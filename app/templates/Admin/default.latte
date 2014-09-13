@@ -1,0 +1,19 @@
+{block content}
+<div class="padd10px25px">
+
+	<div class="content">
+		
+		<h2 n:block=title>myNetteCMS Administrácia</h2>
+		
+		<div n:foreach="$flashes as $flash" class="flash">{$flash->message}</div>
+		
+		<div class="content">
+			<ul class="admin">
+				<li><a n:href=":Admin:Blog:Default:default">Blog module</a></li>
+				<li><a n:href=":Admin:Eshop:Default:default">Eshop module</a></li>
+			</ul>
+		</div>
+	
+	</div>
+	
+</div>	

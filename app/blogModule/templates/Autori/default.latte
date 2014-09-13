@@ -1,0 +1,29 @@
+{block content}
+<div class="padd10px25px">
+
+	<div class="content">
+	
+		{foreach $users as $user}
+			{first}
+			<table class="margTop30">
+		    			<tr>
+		    				<td class="tripleBox">
+			{/first}
+					    		<h3 style="margin:0px; padding-top:3px"><a n:href="Autori:show $user->id">{$user->username}</a></h3>
+			{last $half}
+						</td>
+						<td class="tripleBox">
+			{/last}
+		     {last}
+						</td>
+					</tr>
+			</table>
+			{/last}
+		{/foreach}
+	
+	</div>
+
+</div>
+
+
+   

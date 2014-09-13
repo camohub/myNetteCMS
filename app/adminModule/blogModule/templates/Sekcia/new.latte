@@ -1,0 +1,22 @@
+{block content}
+<div class="padd10px25px">
+	<div class="content">
+	
+	<div n:if="!empty($flashes)" n:inner-foreach="$flashes as $flash" class="flash">
+	<span>{$flash->message}</span><br>
+	</div>
+	     
+		<a n:href=":Admin:default" class="small1">&lt;&lt;spať</a>
+		
+		<h1>Vytvorte novú sekciu v menu</h1>
+		
+		<ul class="foSiz11">
+			<li><a n:href=":Admin:Blog:Clanok:create">Vytvoriť článok</a></li>	
+			<li><a n:href=":Admin:Blog:Clanok:default">Editovať článok</a></li>	
+			<li><a n:href=":Admin:Blog:Clanok:delete">Zmazať článok</a></li>
+			<br>
+			<li><a n:href=":Admin:Blog:Sekcia:new">Vložiť submenu</a></li>	
+		</ul>
+	
+	</div>
+</div>

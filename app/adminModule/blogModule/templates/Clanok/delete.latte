@@ -1,0 +1,20 @@
+{block content}
+<div class="padd10px25px">
+
+	<div class="content">
+	
+	<div n:if="!empty($flashes)" n:inner-foreach="$flashes as $flash" class="flash">
+	<span>{$flash->message}</span><br>
+	</div>
+	     
+		<a n:href=":Admin:Blog:Default:default" class="small1">&lt;&lt;spať</a>
+		
+		<h1>Vyberte článok, ktorý chcete <span style="color:red">zmazať(!)</span></h1>
+		
+		<ul n:inner-foreach="$selection as $row" class="foSiz11">
+			<li><a n:href=":Admin:Blog:Clanok:delete $row->id">{$row->title}</a></li>	
+		</ul>
+	
+	</div>
+
+</div>

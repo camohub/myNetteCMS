@@ -1,0 +1,11 @@
+{block content}
+<div class="padd10px25px">
+<h1 n:block=title>Registrácia</h1>
+
+<div n:foreach="$flashes as $flash" class="flash">{$flash->message}</div>
+
+{control registForm}
+
+{* or use {include '../components/form.latte', form => registInForm} *}
+
+</div>

@@ -1,0 +1,39 @@
+{block content}
+<div class="padd10px25px">
+
+	<div class="content">
+	
+	<div n:if="count($flashes)" n:inner-foreach="$flashes as $flash" class="flash">
+	<span>{$flash->message}</span><br>
+	</div>
+	
+	
+	
+	<div class="date">{$content->username} | {$content->created_at|date:'j. n. Y'}</div>
+	
+	<h1 n:block="title">{$content->title}</h1>
+	
+	<div>{$content->content|noescape}</div>
+	<br>
+	<a n:href="edit $content->id" n:if="$userSess->id" class="control">Upravit příspěvek</a>
+	
+	
+	
+	
+	<h3 class="hr">Vložte nový komentár</h3>
+	
+	{control commentForm}
+	
+	<h3>Komentáre</h3>
+	
+	<div class="comments">
+	    {foreach $comments as $comment}
+	        <p><b><a href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> napsal:</p>
+	        <div>{$comment->content}</div>
+	    {/foreach}
+	</div>
+	
+	</div>
+
+</div>
+

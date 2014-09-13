@@ -1,0 +1,13 @@
+{block content}
+<div class="padd10px25px">
+	<h2 n:block=title>Vitajte v myNetteCMS.</h2>
+	
+	<div n:foreach="$flashes as $flash" class="flash">{$flash->message}</div>
+	
+	<div class="content">
+	{cache 'test'}{/cache}
+	<br>
+	<br>
+	</div>
+
+</div>

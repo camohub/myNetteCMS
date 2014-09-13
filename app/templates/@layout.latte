@@ -1,0 +1,75 @@
+{**
+* @param string $basePath web base path
+* @param array $flashes flash messages
+*}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	{block head}{/block}
+</head>
+<body>
+<div class="center">
+
+	<ul class="navig">
+		<li><a n:href=":Default:default" {ifCurrent :Default:default}class="current"{/ifCurrent}>Úvod</a></li>
+		<li><a n:href=":Blog:Clanky:default">Blog</a></li>
+			{if $presenter->isModuleCurrent('Blog')}
+			<ul>
+				<li><a n:href=":Blog:Autori:default" {ifCurrent :Blog:Autori:default}class="current"{/ifCurrent}>Autori</a></li>
+				<li><a n:href=":Blog:Clanky:default" {ifCurrent :Blog:Clanky:default}class="current"{/ifCurrent}>Najnovšie</a></li>
+				<li><a n:href=":Blog:Clanky:oblubene" {ifCurrent :Blog:Clanky:oblubene}class="current"{/ifCurrent}>Vaše obľúbené</a></li>
+			</ul>
+			{/if}	
+		<li><a n:href=":Eshop:Default:default">E-shop</a></li>
+			{if $presenter->isModuleCurrent('Eshop')}
+			{$eshopMenu}
+			{/if}
+		<li><a n:href=":Drom1:default">Drom1</a></li>
+		{if $userSess['status'] >= 10}
+		<li><a n:href=":Admin:default" {if $presenter->isModuleCurrent('Admin')}class="current"{/if}>Administrácia</a></li>
+		{/if}
+		{if isset($userSess['id'])}
+		<li><a n:href=":Sign:out">Odhlásiť</a></li>
+		<li class="hr"><span>Prihlásený: {$userSess['username']}<br>
+			Zaregistrovaný: {$userSess['created']|date:'%d.%m.%Y'}</span></li>			
+		{else}
+		<li><a n:href=":Sign:in" {ifCurrent Sign:in}class="current"{/ifCurrent}>Prihlásiť</a></li>
+		<li><a n:href=":Regist:default" {ifCurrent Regist:regist}class="current"{/ifCurrent}>Registrovať</a></li>
+		{/if}
+	</ul>	
+ 
+	<h1 class="header">✰ My Nette CMS ✰</h1>
+	
+	<div class="main">
+
+		{include content}
+
+		{block scripts}
+		<script src="{$basePath}/js/jquery.js"></script>
+		<script src="{$basePath}/js/netteForms.js"></script>
+		<script src="{$basePath}/js/main.js"></script>		
+		{/block}
+
+	</div>
+	
+	
+	<div class="footer">
+		<span class="small1">Created & designed by Camo</span>
+		<br>
+		<span class="small2">2014</span>
+	</div>
+
+</div>
+
+</body>
+</html>

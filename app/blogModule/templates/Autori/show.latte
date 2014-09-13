@@ -1,0 +1,9 @@
+{block content}
+<div class="padd10px25px">
+
+<div class="content" n:inner-foreach="$contents as $content">
+	<h2 n:if="$iterator->first">{$content->users->username}</h2>
+	<h3><a n:href=":Blog:Clanky:show $content->id">{$content->title}</a></h3>
+</div>
+
+</div>

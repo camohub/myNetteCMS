@@ -1,0 +1,26 @@
+{block content}
+
+<div class="content">
+
+<div n:if="!empty($flashes)" n:inner-foreach="$flashes as $flash" class="flash">
+<span>{$flash->message}</span><br>
+</div>
+
+	<h1>DromPresenter/show</h1>
+	
+	<div>Vitajte v testovacom prostredí presenteru Drom. Toto je akcia show.
+	<br><br>
+	$id = {$id}
+	<br>
+	$title = {$title}
+	<br><br>
+	<a n:href="Drom:default $id" class="control">Drom:default $id</a>
+	<br>
+	<a n:href="Drom2:default" class="control">Drom2Presenter:default</a>
+	
+
+</div>
+
+<script type="text/javascript" src="http://localhost/nette-blog/www/netteForms.js"></script>
+
+</div>

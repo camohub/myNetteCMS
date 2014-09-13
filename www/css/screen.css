@@ -1,0 +1,335 @@
+html, body {
+	padding:0px;
+	margin:0px;
+	width:100%;
+	height:100%;
+	background: #3d4f61;
+	color:#fff;
+	font-family:Arial;
+	font-weight:bold;	
+}
+
+body {
+	background:#3d4f61 url("../images/star.jpg") 20px -245px no-repeat;
+	position:relative;
+	overflow:auto;
+}
+
+.center {
+	width:950px;
+	min-height:90%;
+	margin:0px auto;
+	padding-bottom:4em;
+	position:relative;
+}
+
+.main {
+	margin-left:200px;
+	padding:25px 0px 25px 0px;
+	color:#fff;
+}
+
+.navig {
+	float:left;
+	width:176px;
+	margin:0px;
+	margin-top:185px;
+	padding:10px;
+	color:#fff;
+	list-style:none;
+}
+
+a {
+	color:#CF9956;
+	text-decoration:none;
+}
+a:hover {
+	color:#dfa986;
+}
+
+ul a {
+	text-shadow:1px 1px 2px #023;
+}
+ul {
+	list-style:none;
+}
+
+.navig a {
+	color:#fff;
+	display:block;
+	font-weight:bold;
+	padding:7px;
+	letter-spacing:1px;
+	font-size:1.1em;
+	text-shadow:1px 1px 2px #023;
+}
+
+.navig span {
+	display:block;
+	padding:7px;
+	letter-spacing:1px;
+	font-size:.8em;
+}
+
+.navig a:hover {
+	color:#bf9966;
+}
+
+a.current {
+	color:#bf9966;
+}
+
+.navig ul {
+	list-style:none inside;
+	padding-left:14px;
+}
+
+h1 {
+	color: #fff;                              	
+	margin:0px 0px -12px 203px;
+	padding:80px 0px 0px 20px;
+	font-size:3em;
+	font-family:verdana;
+	letter-spacing:-4px;
+	text-shadow:1px 1px 2px #023;
+}
+
+.main h1 {
+	color:#CF9956;
+	margin:0px;
+	padding:15px 0px;
+	font-size:1.8em;
+	letter-spacing:-1px;
+	text-shadow:1px 1px 2px #023;
+}
+
+h2 {
+	padding:5px 0px 5px 0px;
+	margin-bottom:25px;
+	margin-top:20px;
+	font-size:1.8em;
+	font-weight:bold;
+     color:#CF9956;
+     text-shadow:1px 1px 2px #023;
+}
+
+h2 a,
+h3 a {
+	color:#CF9956;
+	text-decoration:none;
+}
+
+h3 {
+     color:#CF9956;
+}
+
+.content,
+.post{
+	margin:0px;
+     padding:5px 0px 10px 0px;
+}
+
+.padd10px25px {
+	margin:0px;
+	padding:10px 25px;
+}
+
+.padMar00 {
+	padding:0px;
+	margin:0px;
+}
+
+.foSiz11 {
+	font-size:1.1em;	
+}
+
+.date {
+	font-size:0.8em;
+	padding:5px 0px;
+
+}
+
+.paddTop {
+	margin:30px 0px -10px 200px;
+	padding:0px 0px 0px 20px;
+	color:#fff;
+	font-size:2.7em;
+	font-family:verdana;
+	font-weight:bold;
+	letter-spacing:-2px;
+}
+
+.margTop30 {
+	margin-top:30px;
+}
+
+.control {
+	color:#CF9956;
+}
+
+.doubleBox {
+	width:315px;
+	padding:0px;
+	vertical-align:top;
+}
+
+.tripleBox {
+	width:200px;
+	padding:0px;
+	vertical-align:top;
+}
+
+
+.visualPaginator {
+
+}
+.visualPaginator li {
+	padding-top:20px;
+	display:inline-block;
+	/*float:left;*/
+	list-style:none;
+	color:#cf9956;
+}
+
+.visualPaginator li a {
+	color:#fff;
+}
+
+.formEl {
+	background-color:transparent;
+	border:1px dotted #bbcccc;
+	color:#fff;
+}
+
+label {
+	color:#fff;
+	font-weight:bold;
+}
+
+form td,
+form th {
+	padding:7px 3px;
+	min-width:80px;
+	Nborder:1px solid red; 
+}
+
+.footer {
+	text-align:center;
+	font-weight:normal;
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	height:3em;
+	width:90%;
+	padding:0.5em 5%;
+	clear:both;
+} 
+
+.hr {
+	margin-top:30px;
+	padding-top: 25px;
+	border-top:1px dotted #889999;
+}
+
+.area400 {
+	width:400px;
+	height:60px;
+}
+
+.area600 {
+	width:600px;
+	height:450px;
+}
+
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+
+div.flash {
+	color: #243f57;
+	background: #dFa956;
+	padding: .7em;
+	margin:7px 0px;
+	font-weight:bold;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+
+form th, form td {
+	vertical-align: top;
+	font-weight: normal;
+}
+
+form th {
+	text-align: right;
+}
+
+form .required label {
+	font-weight: bold;
+}
+
+.error {
+	color: #FF7085;
+	margin: 0px;
+	padding: 3px;
+	font-weight: bold;
+	list-style:none;
+}
+
+ul.error {
+	padding-bottom:15px;
+}
+
+.small1{
+	font-size:0.8em;
+}
+
+.small2{
+	font-size:0.65em
+}
+
+
+html.js .jshidden {
+	display: none;
+}
+
+.nette-panel h1 {/* seká sa to s csskom zo stránky */
+	letter-spacing:0px
+}
+
+ul.admin{
+	padding:0px;
+	margin:20px 0px 0px;
+}
+ul.admin li{
+	position:relative;
+	float:left;
+	margin-right:50px;
+	width:150px;
+	list-style:none;
+}
+
+ul.admin li ul{
+	position:absolute;
+	margin-left:15px;
+	padding-left:0px;
+	list-style:none;
+	display:none;
+	width:200px;
+}        
+
+ul.admin li:hover ul{
+	display:block
+}
+
+ul li ul li a:hover{
+	color:#CF9956;
+}

@@ -1,0 +1,17 @@
+{block content}
+<div class="padd10px25px">
+
+	<div class="content">
+	
+		<div n:if="!empty($flashes)" n:inner-foreach="$flashes as $flash" class="flash">
+			<span>{$flash->message}</span><br>
+		</div>
+	
+		<a n:href=":Admin:Blog:Default:default" class="small1">&lt;&lt;spať</a>
+		
+		<h1>Vytvoriť článok</h1>
+		{control articleForm}
+	
+	</div>
+
+</div>
