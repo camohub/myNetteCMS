@@ -12,12 +12,6 @@ use	Nette,
  */
 class Drom1Presenter extends \App\Presenters\BasePresenter
 {
-	/** @var Nette\Database\Context @inject */
-	public $database;
-     /** @var Nette\Caching\IStorage @inject */
-	public $storage;
-	/** @var Model\GeneralModel @inject */
-	public $genModel;
 
 	public function __construct()
 	{
@@ -26,13 +20,11 @@ class Drom1Presenter extends \App\Presenters\BasePresenter
 
 	public function renderDefault($id)
 	{
-		$selection = $this->genModel->getTable('users');
-		//$selection = $this->database->table('users')->where('id > ?', 5)->limit(5);
-		$this->template->selection = $selection;
-		
-		$this->template->test = $this->genModel->getTest();
-		
+		$userModel = new Model\UserModel($this->database);
+		$users = $userModel->getUsers();
+		$this->template->users = $users;
 		
 	}
+	
 
 }

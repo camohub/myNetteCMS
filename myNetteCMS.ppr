@@ -31,7 +31,7 @@ myNetteCMS
 							app\adminModule\blogModule\templates\Default\default.latte
 						-Sekcia
 							app\adminModule\blogModule\templates\Sekcia\new.latte
-			+blogModule
+			-blogModule
 				+presenters
 					app\blogModule\presenters\AutoriPresenter.php
 					app\blogModule\presenters\ClankyPresenter.php
@@ -58,15 +58,18 @@ myNetteCMS
 						app\blogModule\templates\Error\4xx.latte
 						app\blogModule\templates\Error\500.latte
 			-components
-				-NasExt
-					-Controls
+				+menu
+					app\components\menu\menu.php
+					app\components\menu\menu.latte
+				+NasExt
+					+Controls
 						app\components\NasExt\Controls\VisualPaginator.latte
 						app\components\NasExt\Controls\VisualPaginator.php
-			+config
+			-config
 				app\config\config.local.neon
 				app\config\config.neon
 			-eshopModule
-				-presenters
+				+presenters
 					app\eshopModule\presenters\DefaultPresenter.php
 				-templates
 					-Default
@@ -75,11 +78,10 @@ myNetteCMS
 			+model
 				app\model\BaseModel.php
 				app\model\Exceptions.php
-				app\model\GeneralModel.php
 				app\model\Passwords.php
 				app\model\UserManager.php
 				app\model\UserModel.php
-			+presenters
+			-presenters
 				app\presenters\AdminPresenter.php
 				app\presenters\BasePresenter.php
 				app\presenters\DefaultPresenter.php
@@ -88,12 +90,12 @@ myNetteCMS
 				app\presenters\SignPresenter.php
 			-router
 				app\router\RouterFactory.php
-			+templates
+			-templates
 				-Admin
 					app\templates\Admin\default.latte
-				+Default
+				-Default
 					app\templates\Default\default.latte
-				-Drom1
+				+Drom1
 					app\templates\Drom1\default.latte
 				-Drom2
 					app\templates\Drom2\default.latte
@@ -907,12 +909,12 @@ myNetteCMS
 			vendor\composer.json
 			vendor\composer.lock
 			vendor\web.config
-		-www
+		+www
 			-adminer
 				www\adminer\.htaccess
 				www\adminer\adminer.css
 				www\adminer\index.php
-			-css
+			+css
 				www\css\print.css
 				www\css\screen.css
 			-images
@@ -939,18 +941,34 @@ myNetteCMS
 		readme.md
 		readme.txt
 [Open project files]
-0=..\gitTest\index.php
-1=..\gitTest\main.css
-2=..\gitTest\js\a.js
+0=app\blogModule\presenters\ClankyPresenter.php
+1=app\presenters\Drom1Presenter.php
+2=www\css\screen.css
+3=app\presenters\BasePresenter.php
+4=app\presenters\AdminPresenter.php
+5=app\model\BaseModel.php
+6=app\model\UserModel.php
 [Selected Project Files]
 Main=
-Selected=..\gitTest\index.php
-[..\gitTest\index.php]
+Selected=app\model\UserModel.php
+[app\blogModule\presenters\ClankyPresenter.php]
+TopLine=123
+Caret=2,153
+[app\presenters\Drom1Presenter.php]
 TopLine=1
-Caret=21,2
-[..\gitTest\main.css]
-TopLine=37
-Caret=18,70
-[..\gitTest\js\a.js]
+Caret=1,16
+[www\css\screen.css]
 TopLine=1
-Caret=16,5
+Caret=65,8
+[app\presenters\BasePresenter.php]
+TopLine=1
+Caret=8,19
+[app\presenters\AdminPresenter.php]
+TopLine=1
+Caret=10,5
+[app\model\BaseModel.php]
+TopLine=1
+Caret=17,14
+[app\model\UserModel.php]
+TopLine=1
+Caret=1,1

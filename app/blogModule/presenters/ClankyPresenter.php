@@ -4,20 +4,20 @@ namespace App\BlogModule\Presenters;
 use	Nette,
 	Nette\Utils\Validators,
 	Nette\Caching\Cache,
-	Nette\Diagnostics\Debugger;
+	Nette\Diagnostics\Debugger,
+	App\Model;
+	
 
 class ClankyPresenter extends \App\Presenters\BasePresenter
 {
 
-	/** @var Nette\Database\Context */
-	private $database;
 	/** @var Nette\Caching\IStorage @inject */
 	public $storage;
 
 
-	public function __construct(Nette\Database\Context $database)
+	public function __construct()
 	{
-		$this->database = $database;
+
 	}
 	
 	public function startup()
@@ -28,23 +28,23 @@ class ClankyPresenter extends \App\Presenters\BasePresenter
 
 	public function renderDefault($id)
 	{
-		$countAll = $this->database->table('content')->where('status = ?', 1)->count('*');
+		$countAll = $this->database->table('blog')->where('status = ?', 1)->count('*');
 		$vp = $this['vp'];
 		$paginator = $vp->getPaginator();
 		$paginator->itemsPerPage = 3;
 		$paginator->itemCount = $countAll;
 		
-		$this->template->contents = $this->database->table('content')
-							->select('content.*, users.username')
+		$this->template->contents = $this->database->table('blog')
+							->select('blog.*, users.username')
 							->order('created_at DESC')
 							->limit($paginator->itemsPerPage, $paginator->offset);
 	}
 	
 	public function renderShow($id, $title)
 	{
-		$selection = $this->database->table('content')
-								->select('content.*, users.username')
-								->where('content.id = ?', $id)
+		$selection = $this->database->table('blog')
+								->select('blog.*, users.username')
+								->where('blog.id = ?', $id)
 								->limit(1);
 		$this->template->content = $content = $selection->fetch();
 		
@@ -81,7 +81,7 @@ class ClankyPresenter extends \App\Presenters\BasePresenter
 		}
 	}
 
-/////components/////////////////////////////////////////////////////////////////////
+/////component/////////////////////////////////////////////////////////////////////
 
 	protected function createComponentVp($name)
 	{
@@ -98,7 +98,7 @@ class ClankyPresenter extends \App\Presenters\BasePresenter
 		return $control;
 	}
 
-/////components/////////////////////////////////////////////////////////////////////////
+/////component/////////////////////////////////////////////////////////////////////////
 
 	protected function createComponentCommentForm()
 	{
@@ -146,7 +146,7 @@ class ClankyPresenter extends \App\Presenters\BasePresenter
 		}
 	}
 
-////////////////////////////////////////////////////////////////////////////////
+/////component/////////////////////////////////////////////////////////////////
 
      protected function createComponentPostForm()
 	{
@@ -182,14 +182,14 @@ class ClankyPresenter extends \App\Presenters\BasePresenter
 
 		if ($postId)
 		{
-			$post = $this->database->table('posts')->where('id ?', $postId)->update($values);
+			$post = $this->database->table('blog')->where('id ?', $postId)->update($values);
 			$this->flashMessage('Príspevok bol úspešne zeditovaný.', 'success');			
 		} 
 		else
 		{
 			$values['users_id'] = $this->userSess->id;
 			$values['visible'] = 1;
-			$post = $this->database->table('posts')->insert($values);
+			$post = $this->database->table('blog')->insert($values);
 			$postId = $post->id;
 			$this->flashMessage('Príspevok bol úspešne publikovaný.', 'success');
 		}

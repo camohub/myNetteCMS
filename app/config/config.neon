@@ -21,9 +21,8 @@ services:
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
 	- \App\Model\UserModel
-	- \App\Model\GeneralModel
-	- 
-		class: App\Model\BaseModel
-		inject: true
+	- \App\Model\AplicationModel
+
+
 
 

@@ -11,14 +11,12 @@ use 	Nette,
 	Nette\Diagnostics\Debugger;
 
 
-class BaseModel
+class AplicationModel
 {
-	/** @var Nette\Database\Context */
-	public $database;
 		
-	public function __construct(Nette\Database\Context $db)
+	public function __construct()
 	{
-		$this->database = $db;
+
 	}
 	
 }

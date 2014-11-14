@@ -2,8 +2,7 @@
 
 namespace App\Presenters;
 
-use	Nette,
-	Nette\Caching\Cache;
+use	Nette;
 
 /**
  * Admin presenter.
@@ -11,14 +10,10 @@ use	Nette,
 
 class AdminPresenter extends \App\Presenters\BasePresenter
 {
-	/** @var Nette\Database\Context */
-	private $database;
-     /** @var Nette\Caching\IStorage @inject */
-	public $storage;
 
-	public function __construct(\Nette\Database\Context $database)
+	public function __construct()
 	{
-		$this->database = $database;
+
 	}
 
 	public function renderDefault()

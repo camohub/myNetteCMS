@@ -20,33 +20,19 @@
 <body>
 <div class="center">
 
-	<ul class="navig">
-		<li><a n:href=":Default:default" {ifCurrent :Default:default}class="current"{/ifCurrent}>Úvod</a></li>
-		<li><a n:href=":Blog:Clanky:default">Blog</a></li>
-			{if $presenter->isModuleCurrent('Blog')}
-			<ul>
-				<li><a n:href=":Blog:Autori:default" {ifCurrent :Blog:Autori:default}class="current"{/ifCurrent}>Autori</a></li>
-				<li><a n:href=":Blog:Clanky:default" {ifCurrent :Blog:Clanky:default}class="current"{/ifCurrent}>Najnovšie</a></li>
-				<li><a n:href=":Blog:Clanky:oblubene" {ifCurrent :Blog:Clanky:oblubene}class="current"{/ifCurrent}>Vaše obľúbené</a></li>
-			</ul>
-			{/if}	
-		<li><a n:href=":Eshop:Default:default">E-shop</a></li>
-			{if $presenter->isModuleCurrent('Eshop')}
-			{$eshopMenu}
+	<div class="navig">
+		{control menu}		
+		<ul>
+			{if isset($userSess['id'])}
+			<li><a n:href=":Sign:out">Odhlásiť</a></li>
+			<li class="hr"><span>Prihlásený: {$userSess['username']}<br>
+				Zaregistrovaný: {$userSess['created']|date:'%d.%m.%Y'}</span></li>			
+			{else}
+			<li><a n:href=":Sign:in" {ifCurrent Sign:in}class="current"{/ifCurrent}>Prihlásiť</a></li>
+			<li><a n:href=":Regist:default" {ifCurrent Regist:regist}class="current"{/ifCurrent}>Registrovať</a></li>
 			{/if}
-		<li><a n:href=":Drom1:default">Drom1</a></li>
-		{if $userSess['status'] >= 10}
-		<li><a n:href=":Admin:default" {if $presenter->isModuleCurrent('Admin')}class="current"{/if}>Administrácia</a></li>
-		{/if}
-		{if isset($userSess['id'])}
-		<li><a n:href=":Sign:out">Odhlásiť</a></li>
-		<li class="hr"><span>Prihlásený: {$userSess['username']}<br>
-			Zaregistrovaný: {$userSess['created']|date:'%d.%m.%Y'}</span></li>			
-		{else}
-		<li><a n:href=":Sign:in" {ifCurrent Sign:in}class="current"{/ifCurrent}>Prihlásiť</a></li>
-		<li><a n:href=":Regist:default" {ifCurrent Regist:regist}class="current"{/ifCurrent}>Registrovať</a></li>
-		{/if}
-	</ul>	
+		</ul>
+	</div>	
  
 	<h1 class="header">✰ My Nette CMS ✰</h1>
 	

@@ -3,7 +3,8 @@
 namespace App\Adminmodule\BlogModule\Presenters;
 
 use	Nette,
-	Nette\Diagnostics\Debugger;
+	Nette\Diagnostics\Debugger,
+	App\Model;
 
 /**
  * Clanok presenter.
@@ -11,13 +12,9 @@ use	Nette,
 
 class ClanokPresenter extends \App\Presenters\BasePresenter
 {
-	/** @var Nette\Database\Context @inject */
-	private $database;
 
-
-	public function __construct(Nette\Database\Context $db)
+	public function __construct()
 	{
-		$this->database = $db;
 
 	}
 
@@ -28,7 +25,8 @@ class ClanokPresenter extends \App\Presenters\BasePresenter
 
 	public function renderDefault()
 	{
-		$selection = $this->database->table('content')->where('users_id = ?', $this->userSess->id);
+		$blogModel = new Model\BlogModule($this->database);
+		$selection = $blogModule->getUserArticles($this->userSess->id);
 		$this->template->selection = $selection;
 	}
 	

@@ -12,17 +12,29 @@ use 	Nette,
 	Nette\Diagnostics\Debugger;
 
 /**
+ * @method getUsers
  * @method RegisterUser
+ * @method signInUser   
  */
-class UserModel extends BaseModel
+class UserModel
 {
-	/*	
+	
+	/** @var Nette\Database\Context */
+	protected $database;
+	
 	public function __construct(Nette\Database\Context $db)
 	{
-		// when rewriteing parent __construct must create database connection here
-		// cause injection do not works then in BaseModel
-		parent::__construct($db);
-	} */
+		$this->database = $db;
+		
+	}
+	
+	/**
+	 * @return selection from users table
+	 */	 		
+	public function getUsers()
+	{
+		return $this->getTable();
+	}
 	
 	/**
 	 * @param  array $params
@@ -92,6 +104,8 @@ class UserModel extends BaseModel
 		return false;
 		
 	}
+
+/////protected methods//////////////////////////////////////////////////////////
 	
 	protected function getTable()
 	{
@@ -105,5 +119,6 @@ class UserModel extends BaseModel
 	{
 		return $this->getTable()->insert($params);	
 	}
+
 
 }

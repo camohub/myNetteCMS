@@ -11,13 +11,9 @@ use	Nette,
 
 class SekciaPresenter extends \App\Presenters\BasePresenter
 {
-	/** @var Nette\Database\Context @inject */
-	private $database;
 
-
-	public function __construct(Nette\Database\Context $db)
+	public function __construct()
 	{
-		$this->database = $db;
 
 	}
 	

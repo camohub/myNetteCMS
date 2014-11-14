@@ -3,9 +3,9 @@
 namespace App\BlogModule\Presenters;
 
 use	Nette,
-	/*App\Model,
-	Nette\Caching\Cache, */
-	Nette\Diagnostics\Debugger,
+	App\Model,
+	/*Nette\Caching\Cache,
+	Nette\Diagnostics\Debugger,*/
 	Nette\Utils\Paginator;
 
 /**
@@ -14,15 +14,10 @@ use	Nette,
 
 class AutoriPresenter extends \App\Presenters\BasePresenter
 {
-	/** @var Nette\Database\Context */
-	private $database;
-     /** @var Nette\Caching\IStorage @inject */
-	public $storage;
 
-
-	public function __construct(\Nette\Database\Context $database)
+	public function __construct()
 	{
-		$this->database = $database;
+
 	}
 
 	public function startup()
@@ -32,9 +27,6 @@ class AutoriPresenter extends \App\Presenters\BasePresenter
 
 	public function renderDefault()
 	{
-		/*$this->template->posts = $this->database->table('posts')
-										->select('posts.title, posts.id, users.username')
-										->order('username ASC'); */
 		$this->template->users = $this->database->table('users')
 											->select('id, username')
 											->where('NOT username', 'eshop')
@@ -44,7 +36,6 @@ class AutoriPresenter extends \App\Presenters\BasePresenter
 		
 			
 	}
-
 
 	public function renderShow($id)
 	{

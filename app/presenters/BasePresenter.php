@@ -15,6 +15,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	/** @var Nette\Http\Session|Nette\Http\SessionSection */
 	protected $userSess;
 	
+	/** @var Nette\Database\Context @inject */
+	public $database;
+	
 	public function startup()
 	{
 		parent::startup();
@@ -26,6 +29,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		//return \Nette\Utils\Strings::startsWith($this->getName(), $module);
 		return stripos($this->getName(), $module) === 0;
-	}	
+	}
+	
+	protected function createComponentMenu()
+	{
+		$control = new \App\Controls\Menu($this->database);
+
+		return $control;
+	}		
 
 }
