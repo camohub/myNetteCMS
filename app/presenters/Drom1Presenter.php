@@ -26,5 +26,5 @@ class Drom1Presenter extends \App\Presenters\BasePresenter
 		
 	}
 	
-
+	//Toto sa má objaviť IBA vo vetve test repozitára myNetteCMS
 }
